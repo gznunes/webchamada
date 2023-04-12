@@ -1,0 +1,17 @@
+#container{
+    /* background-color: lightgrey; */
+    max-width: 500px;
+    margin: 0 auto;
+    /* background-color: aqua; */
+    margin-top: 200px;
+}
+
+button{
+    margin-top: 10px;
+    float: right;
+}
+
+p{
+    font-size: 12px;
+    margin-top: 10px;
+}
