@@ -56,10 +56,10 @@ button{
 } */
 
 .container{
-    width: 350px;
+    width: 450px;
     height: 700px;
     /* margin: 0 auto; */
-    /* border: 10px solid yellow; */
+    /* border: 10px solid red; */
     margin-top: 200px;
     display: flex;
     justify-content: center;    
