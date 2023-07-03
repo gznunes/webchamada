@@ -25,21 +25,31 @@
 </div> -->
     <div id="container">
         <h2>Informe sua sala e seu nome:</h2>
+        <!-- <p id="sala"></p> -->
+        <h3>Sala: </h3>
         <form class="form">        
             <div class="form-group">
-            <label for="exampleInputEmail1">Sala</label>
-            <input type="text" class="form-control" name="sala" aria-describedby="emailHelp" placeholder="Sala">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                <label for="sala">Sala</label>
+                <input type="text" class="form-control" name="sala" placeholder="Sala" disabled>
             </div>
             <div class="form-group">
-            <label for="exampleInputPassword1">Nome</label>
-            <input type="text" class="form-control" name="nome" placeholder="Nome">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" name="nome" placeholder="Nome">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form><p></p>
     </div>
 
+    
+
     <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const sala = urlParams.get('sala')
+        console.log(sala);
+
+        // document.getElementById(sala).insertAdjacentElement("beforeend",sala)
+        document.querySelector('h3').insertAdjacentHTML("beforeend",sala);
 
         const formEl = document.querySelector('.form');
 
@@ -47,9 +57,18 @@
             event.preventDefault();
             
             const formData = new FormData(formEl);
+            formData.append('sala', sala);
+            // const t = Date.now()
+
+            const t = new Date(Date.now()).toISOString();
+
+
+            formData.append('data', t);
+            console.log(Object.fromEntries(formData));
             const data = Object.fromEntries(formData);
 
             fetch('https://api-livros.onrender.com/chamada', {
+            // fetch('localhost:3000/chamada', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
