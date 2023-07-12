@@ -63,12 +63,16 @@ button{
     margin-top: 200px;
     display: flex;
     justify-content: center;    
-    /* align-items: center; */
+    align-items: center;
     flex-wrap: wrap;
     align-content: flex-start; 
 }
 
 li{
     width: 300px;
+}
+
+.form{
+    width: 100%;
 }
 
